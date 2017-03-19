@@ -1,4 +1,4 @@
-package wasdev.sample.servlet;
+package com.ibm.wuhan;
 
 import java.io.IOException;
 
@@ -21,7 +21,7 @@ public class SimpleServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        response.getWriter().print("Hello World!");
+        response.getWriter().print("WH Bus App...");
     }
 
 }
