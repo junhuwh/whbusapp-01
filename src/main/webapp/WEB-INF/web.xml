@@ -8,4 +8,12 @@
          <param-name>data1</param-name>
          <param-value>data1</param-value>
          </context-param>
+         
+         
+         <welcome-file-list>  
+    <welcome-file>index.html</welcome-file>  
+    <welcome-file>index.js</welcome-file>  
+    <welcome-file>index.jsp</welcome-file>  
+</welcome-file-list>  
+
 </web-app>
