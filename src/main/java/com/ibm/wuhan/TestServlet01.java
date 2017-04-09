@@ -1,6 +1,8 @@
 package com.ibm.wuhan;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -28,8 +30,12 @@ public class TestServlet01 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String data="testservlet01";
+		String data="test servlet 01";
 		this.getServletContext().setAttribute("data", data);
+		
+		RequestDispatcher rd = this.getServletContext().getRequestDispatcher("/test1.jsp");
+		rd.forward(request, response);
+		
 	}
 
 	/**

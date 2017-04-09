@@ -1,6 +1,9 @@
 package com.ibm.wuhan;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +37,20 @@ public class TestServlet02 extends HttpServlet {
 		System.out.println(value);
 		System.out.println(data2);
 		
+		test01(response);
+	}
+
+	private void test01(HttpServletResponse response) throws IOException {
+		InputStream in = this.getServletContext().getResourceAsStream("/WEB-INF/classes/db.properties");
+		Properties props = new Properties();
+		props.load(in);
+		
+		String url = props.getProperty("url");
+		String username = props.getProperty("username");
+		String password = props.getProperty("password");
+		
+		response.getWriter().append(url + " "+ username);
+		System.out.println(url + " "+ username);
 	}
 
 	/**

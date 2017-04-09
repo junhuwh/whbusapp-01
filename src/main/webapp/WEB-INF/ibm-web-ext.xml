@@ -12,4 +12,5 @@
 	<enable-reloading value="true"/>
 	<enable-serving-servlets-by-class-name value="false" />
 
+         
 </web-ext>
