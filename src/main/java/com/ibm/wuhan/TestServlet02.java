@@ -1,5 +1,6 @@
 package com.ibm.wuhan;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -41,8 +42,14 @@ public class TestServlet02 extends HttpServlet {
 	}
 
 	private void test01(HttpServletResponse response) throws IOException {
-		InputStream in = this.getServletContext().getResourceAsStream("/WEB-INF/classes/db.properties");
-		Properties props = new Properties();
+//		InputStream in = this.getServletContext().getResourceAsStream("/WEB-INF/classes/db.properties");
+//		InputStream in = this.getServletContext().getResourceAsStream("/resource/db.properties");
+		
+		String path = this.getServletContext().getRealPath("/resource/db.properties");
+		FileInputStream in = new FileInputStream(path);
+		System.out.println(path);
+		
+		Properties props = new Properties();//map
 		props.load(in);
 		
 		String url = props.getProperty("url");
