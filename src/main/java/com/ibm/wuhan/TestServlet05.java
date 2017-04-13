@@ -38,7 +38,7 @@ public class TestServlet05 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		test6(request, response);
+		test5(request, response);
 		// System.out.println(request.getContextPath());
 		// System.out.println(request.getSession().getAttribute("piccode"));
 	}
