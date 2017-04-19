@@ -19,14 +19,14 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class TestServlet05
  */
-@WebServlet("/TestServlet05")
-public class TestServlet05 extends HttpServlet {
+@WebServlet("/TestServlet05CreateCodePic")
+public class TestServlet05CreateCodePic extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public TestServlet05() {
+	public TestServlet05CreateCodePic() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

@@ -8,7 +8,7 @@
 <script type="text/javascript">
 	function reloadCode() {
 		var time = new Date().getTime();
-		document.getElementById("imagecode").src = "TestServlet05?d" + time
+		document.getElementById("imagecode").src = "TestServlet05CreateCodePic?d" + time
 	}
 	function changeImage(img) {
 		img.src = img.src + "?" + new Date().getTime();
@@ -16,12 +16,11 @@
 </script>
 </head>
 <body>
-	<form action="TestServlet06" method="get">
-		验证码:<input type="text" name="checkcode" /> <img alt="验证码"
-			id="imagecode" src="TestServlet05" onclick="changeImage(this)"
-			title="换一张" alt="验证图片" style="cursor: pointer" /> <a
-			href="javascript:reloadCode()">看不清楚</a> <br> <input
-			type="submit" value="提交 " />
+	<form action="TestServlet06CheckCode" method="get">
+		验证码:<input type="text" name="checkcode" /> 
+		<img alt="验证码" id="imagecode" src="TestServlet05CreateCodePic" onclick="changeImage(this)" title="换一张" alt="验证图片" style="cursor: pointer" /> 
+		<a href="javascript:reloadCode()">看不清楚</a> <br> 
+		<input	type="submit" value="提交 " />
 	</form>
 </body>
 </html>

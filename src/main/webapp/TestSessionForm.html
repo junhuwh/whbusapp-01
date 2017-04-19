@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TestSessionForm</title>
+
+<script type="text/javascript">
+/*var iscommited9 = false;
+ function dosubmit(){
+	if(!iscommited){
+		iscommited=true;
+		return true;
+		}else{return false;} */
+		
+	function dosubmit(){
+		document.getElementById("btn").disabled=true
+		return true;
+		}
+		
+
+</script>
+
+
+</head>
+<body>
+	<form action="TestSessionForm" method="post" onsubmit="return dosubmit()">
+		用户名：<input type="text" name="username"> 
+		<input id="btn"	type="submit" value="提交">
+	</form>
+
+</body>
+
+</html>

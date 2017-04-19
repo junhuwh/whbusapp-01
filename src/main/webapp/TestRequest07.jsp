@@ -7,26 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h>this is test1.jsp</h>
-		<br/>
-	
-	<font color="blue">
-	<%
-		String data = (String) application.getAttribute("data");
-		out.println(data);
-	%>
-	<!-- response 数据 -->
-		<br/>
-	
-	${data}
-	<br/>
-	<% 
-		String data1 = (String) request.getAttribute("data");
-		out.write(data1);
-	%>
-	<br/>
-	
-	
-	</font>
+		<a href="TestRequest07">qqqjsp111</a>
 </body>
 </html>

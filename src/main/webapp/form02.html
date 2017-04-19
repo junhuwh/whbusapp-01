@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>中文乱码问题</title>
+</head>
+<body>
+<form action="TestRequest04" method="post">
+		用户名：<input type="text" name="username"><br/> 
+		<input type="submit" value="提交">
+	</form>
+	
+	<form action="TestRequest04" method="get">
+		用户名：<input type="text" name="username"><br/> 
+		<input type="submit" value="提交">
+	</form>
+	
+	<a href="TestRequest04?username=吃饭111">aaa</a>
+</body>
+</html>

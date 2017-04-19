@@ -1,26 +1,27 @@
 package com.ibm.wuhan;
 
+import java.awt.List;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class TestServlet06
+ * Servlet implementation class TestSession05
  */
-@WebServlet("/TestServlet06")
-public class TestServlet06 extends HttpServlet {
+@WebServlet("/TestSession05")
+public class TestSession05 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public TestServlet06() {
+	public TestSession05() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -32,8 +33,31 @@ public class TestServlet06 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html;charset=utf-8");
-		login(request, response);
+
+		String id = request.getParameter("id");
+		Book book = (Book) Db.getAll().get(id);
+
+		HttpSession session = request.getSession(false);
+		//手工以cookie形式发sessionid, 处理关闭浏览器后 清空上次买的东西
+		
+		
+		
+		// 从session中得到用户用于保存书的集合(购物车)
+		ArrayList list = (ArrayList) session.getAttribute("list");
+
+		if (list == null) {
+			list = new ArrayList();
+			session.setAttribute("list", list);
+
+		}
+
+		list.add(book);
+		//转发 刷新会重复该动作
+		//request.getRequestDispatcher("TestSession06").forward(request, response);
+
+		//重定向
+		String url = response.encodeRedirectURL(request.getContextPath() + "/TestSession06");
+		response.sendRedirect(url);
 	}
 
 	/**
@@ -46,20 +70,4 @@ public class TestServlet06 extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private void login(HttpServletRequest request, HttpServletResponse response)
-			throws IOException, UnsupportedEncodingException {
-		String piccode = (String) request.getSession().getAttribute("piccode");
-		String checkcode = request.getParameter("checkcode");
-		checkcode=checkcode.toUpperCase();
-		PrintWriter out = response.getWriter();
-		if (checkcode.equals(piccode)) {
-			out.println("验证码正确");
-
-		} else {
-			out.println("验证码错误");
-
-		}
-		out.flush();
-		out.close();
-	}
 }
