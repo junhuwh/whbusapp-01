@@ -16,6 +16,13 @@ public class Person {
 		this.age = age;
 	}
 
+	public Person(String name) {
+		super();
+		this.name = name;
+		
+	}
+
+	
 	public String getName() {
 		return name;
 	}

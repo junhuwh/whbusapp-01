@@ -1,0 +1,23 @@
+1. 编写一个实现tag接口的java类
+public class ViewIPTag extends TagSupport {
+	@Override
+	public int doStartTag() throws JspException {
+		HttpServletRequest request = (HttpServletRequest) this.pageContext.getRequest();
+		JspWriter out = this.pageContext.getOut();
+		String ip = request.getRemoteAddr();
+		try {
+			out.print(ip);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException();
+		}
+		return super.doStartTag();
+	}
+	
+}
+
+2. 在tld文件中 對標籤處理器進行描述（tld文件位置在 ：WEB-INF 下）
+複製 這個文件jsp2-example-taglib.tld
+
+3. 在jsp頁面中導入和使用自定義標籤

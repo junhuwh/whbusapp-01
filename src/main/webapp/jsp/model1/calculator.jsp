@@ -32,7 +32,7 @@
 	<br />
 
 		<form action="calculator.jsp" method="post">
-			<table width="40%" border="1" align="center">
+			<table width="40%" border="1" align="left">
 				<tr>
 					<td colspan="2">四则运算计算器</td>
 				</tr>
